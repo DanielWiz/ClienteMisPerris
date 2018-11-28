@@ -1,0 +1,65 @@
+
+<html>
+{% load pwa %}
+{% load static %}
+    <head>
+        <meta lang="es">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'usuarios/footer.css' %}">
+        <link rel="stylesheet" href="{% static 'usuarios/menu.css' %}">
+        <link rel="stylesheet" href="{% static 'usuarios/tablas.css' %}">
+        {% progressive_web_app_meta %}
+        {% block head %}
+        {% endblock %}
+        <title>{% block title %}Mis Perris{% endblock %}</title>
+    </head>    
+
+    <div id="container">
+            <div id="body">
+                <body>
+                    <nav>
+                        <div class="topnav" id="myTopnav">
+                            <div class=logo>
+                                <a><img src="{% static "img/logo.png" %}" alt="logo pagina"></a>
+                            </div>
+                                <a href="/" class="active">Inicio</a>
+                                <a href="/login/">Login</a>
+                                <a href="/registro/">Registro</a>
+                                <a href="/adopcion/">Galeria</a>
+                                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                                <i class="fa fa-bars"></i>
+                                </a>
+                            <div class="NombreUser">
+                                    {% if request.user.username == "" %}
+                                    
+                                    {% else %}
+                                    <div class="deslogeo">
+                                        <a href="{% url 'logout' %}">Deslogeo</a>
+                                    </div>
+                                    <div class="usuario">     
+                                    Bienvenido: {{request.user.username}}
+                                    </div>
+                                    {% endif %}
+                            </div>
+                        </div>               
+                    </nav> 
+        <div id="content">
+            {% block content %}
+                <main>
+                                
+                                
+                </main>
+            {% endblock %}
+        </div>
+        <script src="{% static 'js/menu.js' %}"></script>
+        {% block scripts %}
+ 
+         {% endblock %} 
+    </body>
+  
+
+</html>
