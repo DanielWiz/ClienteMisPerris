@@ -27,7 +27,7 @@ PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
 SECRET_KEY = 'r+$(^4v_c0+c!tqeh(%f7vphe4w3lu^39$gg31a6vk%&uq=%-4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['.pythonanywhere.com']
 
